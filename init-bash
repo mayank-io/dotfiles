@@ -1,0 +1,3 @@
+if [ -f ~/.mk-dot-files/git-completion.bash ]; then
+    source ~/.mk-dot-files/git-completion.bash
+fi

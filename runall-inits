@@ -1,0 +1,3 @@
+source ~/.mk-dot-files/init-env
+source ~/.mk-dot-files/init-aliases
+source ~/.mk-dot-files/init-osx

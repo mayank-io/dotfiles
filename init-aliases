@@ -1,0 +1,12 @@
+# Display all IP addresses without all the fluff of ifconfig
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+# Display public IP Address of this machine
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+# Useful aliases
+alias ls='ls -G'
+alias ll='ls -l'
+alias ql='qlmanage -p 2>/dev/null'
+alias grep="grep --color=auto"
+alias redo='sudo \!-1'
