@@ -10,3 +10,4 @@ alias ll='ls -l'
 alias ql='qlmanage -p 2>/dev/null'
 alias grep="grep --color=auto"
 alias redo='sudo \!-1'
+alias dev='cd ~/Developer/vibhulabs/bitbucket'
