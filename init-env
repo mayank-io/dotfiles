@@ -2,6 +2,10 @@
 OPT=~/Developer/opt
 
 export ANDROID_HOME=/Users/$USER/Developer/opt/android/sdk
+
+# Set architecture flags
+export ARCHFLAGS="-arch x86_64e
+
 export ARCANIST_HOME=/Users/$USER/Developer/github/facebook/arcanist
 export MYSQL_HOME=/usr/local/mysql
 export GOROOT=$OPT/go
@@ -15,15 +19,14 @@ export GITHUB_HOME=~/Developer/github
 export P4_HOME=~/Developer/p4ws
 export JEM_ROOT=~/Developer/p4ws/jem/subscription_infrastructure/Entitlement
 export JEM_ENV=LOCALHOST
-
-DOCKER_HOST=tcp://192.168.99.100:2376
-DOCKER_CERT_PATH=/Users/$USER/.docker/machine/machines/default
-DOCKER_TLS_VERIFY=1
+export SANDBOX=~/Developer/sandbox
 
 export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=256M"
 export JAVA_OPTS="-Xmx2048M -XX:MaxPermSize=1024M"
+export GOPATH=$SANDBOX/go
 
+export PIP_REQUIRE_VIRTUALENV=true
 export LC_CTYPE="en_US.UTF-8"
 
 
-PATH=/opt/local/bin:/opt/local/sbin:$MYSQL_HOME/bin:$SPRING_ROO_HOME/bin:$M2_HOME/bin:$GRADLE_HOME/bin:$GROOVY_HOME/bin:$HADOOP_HOME/bin:$PIG_HOME/bin:./:~/Scripts:/usr/local/sbin:$PATH:$ARCANIST_HOME/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$GOROOT/bin
+PATH=/opt/local/bin:/opt/local/sbin:$MYSQL_HOME/bin:$SPRING_ROO_HOME/bin:$M2_HOME/bin:$GRADLE_HOME/bin:$GROOVY_HOME/bin:$HADOOP_HOME/bin:$PIG_HOME/bin:./:~/Scripts:/usr/local/sbin:$PATH:$ARCANIST_HOME/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$GOROOT/bin:$GOPATH/bin:$OPT/otto-0.1.1
