@@ -37,4 +37,4 @@ export LC_CTYPE=en_US.UTF-8
 
 PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:$MYSQL_HOME/bin:$SPRING_ROO_HOME/bin:$M2_HOME/bin:$GRADLE_HOME/bin:$GROOVY_HOME/bin:$HADOOP_HOME/bin:$PIG_HOME/bin:./:~/Scripts:$ARCANIST_HOME/bin:/usr/local/opt/gnu-sed/libexec/gnubin:$GOROOT/bin:$PATH
 
-source /usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh
