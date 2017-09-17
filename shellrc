@@ -1,0 +1,29 @@
+#
+# .shellrc
+#	Init file for customizations which are agnostic to the shell being used.
+#
+
+# My prompt.
+export PS1="\[\e[0;32m\]\]\[\] \[\e[1;32m\]\]\t \[\e[0;2m\]\]\w \[\e[0m\]\]\[$\] "
+
+# Use colors.
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+# Store brew base directory for future use in this script
+brew_prefix=`brew --prefix`
+
+# Setup environment variables
+if [ -f ~/dotfiles/env ]
+then
+  source ~/dotfiles/env
+fi
+
+# Include alias file (if present) containing aliases for ssh, etc.
+if [ -f ~/dotfiles/aliases ]
+then
+  source ~/dotfiles/aliases
+fi
+
+# Initialize macOS preferences
+source ~/dotfiles/osxrc

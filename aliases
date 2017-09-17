@@ -1,3 +1,7 @@
+#
+# 
+#
+
 # Display all IP addresses without all the fluff of ifconfig
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
@@ -10,8 +14,10 @@ alias ll='ls -l'
 alias ql='qlmanage -p 2>/dev/null'
 alias grep="grep --color=auto"
 alias redo='sudo \!-1'
-alias dev='cd ~/Developer/vibhulabs/bitbucket'
 alias sb='cd ~/Developer/sandbox'
+alias jem='cd ~/Developer/gitcorp/janus/entitlement'
+alias 
+sls='cd ~/Developer/gitcorp/sls/'
 
 gpip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
