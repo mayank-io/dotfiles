@@ -3,7 +3,4 @@
 #
 
 # Include bashrc file (if present).
-if [ -f ~/.bashrc ]
-then
-  source ~/.bashrc
-fi
+source ~/Developer/github/mayank-io/dotfiles/.bashrc

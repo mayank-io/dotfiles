@@ -14,16 +14,16 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 brew_prefix=`brew --prefix`
 
 # Setup environment variables
-if [ -f ~/dotfiles/env ]
+if [ -f ~/Developer/github/mayank-io/dotfiles/env ]
 then
-  source ~/dotfiles/env
+  source ~/Developer/github/mayank-io/dotfiles/env
 fi
 
 # Include alias file (if present) containing aliases for ssh, etc.
-if [ -f ~/dotfiles/aliases ]
+if [ -f ~/Developer/github/mayank-io/dotfiles/aliases ]
 then
-  source ~/dotfiles/aliases
+  source ~/Developer/github/mayank-io/dotfiles/aliases
 fi
 
 # Initialize macOS preferences
-source ~/dotfiles/osxrc
+source ~/Developer/github/mayank-io/dotfiles/osxrc

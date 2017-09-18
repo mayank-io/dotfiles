@@ -1,1 +1,1 @@
-source ~/.dotfiles/init.bash
+source ~/Developer/github/mayank-io/dotfiles/init.bash
