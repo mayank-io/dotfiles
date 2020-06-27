@@ -4,4 +4,4 @@
 # request to zshrc located in dotfiles.
 #
 
-source ~/.dotfiles/init.zsh
+source ~/Developer/github/mayank-io/dotfiles/init.zsh
