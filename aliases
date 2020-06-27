@@ -15,11 +15,8 @@ alias ql='qlmanage -p 2>/dev/null'
 alias grep="grep --color=auto"
 alias redo='sudo \!-1'
 alias sb='cd ~/Developer/sandbox'
-alias gc='cd ~/Developer/gitcorp/'
 alias gh='cd ~/Developer/github/'
 alias jem='cd ~/Developer/gitcorp/janus/entitlement'
 alias sls='cd ~/Developer/gitcorp/sls/'
-
-gpip(){
-   PIP_REQUIRE_VIRTUALENV="" pip "$@"
-}
+alias cnlp='cd /Users/mayankk/Developer/learning/coursera-nlp-1'
+alias jp='source jupyter-python/bin/activate'
