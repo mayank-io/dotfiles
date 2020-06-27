@@ -1,13 +1,5 @@
 
-#OPT=~/Developer/opt
 OPT=/usr/local/opt
-
-# pip should only run if there is a virtualenv currently activated
-export PIP_REQUIRE_VIRTUALENV=true
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-export PYTHONPATH=/Library/Python/2.7/site-packages:$PYTHONPATH
-
-export ANDROID_HOME=~/Developer/opt/android/sdk
 
 # Set architecture flags
 export ARCHFLAGS="-arch x86_64"
@@ -28,9 +20,6 @@ export SANDBOX=~/Developer/sandbox
 export MAVEN_OPTS=-Xmx1024M
 export JAVA_OPTS=-Xmx2048M
 
-export PIP_REQUIRE_VIRTUALENV=true
 export LC_CTYPE=en_US.UTF-8
 
-PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:$MYSQL_HOME/bin:$M2_HOME/bin:$GRADLE_HOME/bin:$GROOVY_HOME/bin:./:~/Scripts:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
-
-#source /usr/local/bin/virtualenvwrapper.sh
+PATH=/opt/local/bin:/opt/local/sbin:~/.local/bin:/usr/local/bin:/usr/local/sbin:$MYSQL_HOME/bin:$M2_HOME/bin:$GRADLE_HOME/bin:$GROOVY_HOME/bin:./:~/Scripts:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
