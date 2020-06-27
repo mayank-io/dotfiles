@@ -10,3 +10,10 @@ function juse() {
     export PATH=$JAVA_HOME/bin:$PATH
     java -version
 }
+
+mkdir -p ~/Screenshots
+defaults write com.apple.screencapture location /Users/mayankk/Screenshots
+
+# Enable Path Bar at the bottom of Finder window
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowStatusBar -bool true
