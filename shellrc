@@ -30,4 +30,9 @@ source ~/Developer/github/mayank-io/dotfiles/osxrc
 
 export WORKON_HOME=$HOME/.virtualenvs
 mkdir -p $WORKON_HOME
-source ~/.pyenv/versions/3.8.3/bin/virtualenvwrapper.sh
+which_python=`pyenv which python3`
+. `pyenv prefix`/bin/virtualenvwrapper.sh
+
+export NVM_DIR="$HOME/.nvm"
+# Load NVM
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"

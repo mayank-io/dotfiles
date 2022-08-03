@@ -16,7 +16,6 @@ alias grep="grep --color=auto"
 alias redo='sudo \!-1'
 alias sb='cd ~/Developer/sandbox'
 alias gh='cd ~/Developer/github/'
-alias jem='cd ~/Developer/gitcorp/janus/entitlement'
-alias sls='cd ~/Developer/gitcorp/sls/'
 alias cnlp='cd /Users/mayankk/Developer/learning/coursera-nlp-1'
 alias jp='source jupyter-python/bin/activate'
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
