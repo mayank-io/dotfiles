@@ -21,10 +21,10 @@ fi
 if [ -n "$ZSH_VERSION" ]; then
     # ZSH prompt with colors
     autoload -U colors && colors
-    export PS1="%{$fg_bold[cyan]%}%* %{$fg_no_bold[green]%}%~ %{$reset_color%}"
+    export PS1="%{$fg_bold[cyan]%}%* %{$fg_no_bold[green]%}%~ %{$reset_color%}%# "
 elif [ -n "$BASH_VERSION" ]; then
     # Bash prompt
-    export PS1="\[\e[1;36m\]\t \[\e[0;32m\]\w \[\e[0m\]"
+    export PS1="\[\e[1;36m\]\t \[\e[0;32m\]\w \[\e[0m\]\$ "
 fi
 
 # Use colors.
