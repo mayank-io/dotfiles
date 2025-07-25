@@ -3,15 +3,38 @@
 #	Init file for customizations which are agnostic to the shell being used.
 #
 
-# My prompt.
-export PS1="\[\e[0;32m\]\]\[\] \[\e[1;32m\]\]\t \[\e[0;2m\]\]\w \[\e[0m\]\]\[$\] "
+# Shell-specific pyenv initialization
+if [ -n "$ZSH_VERSION" ]; then
+    # ZSH-specific pyenv setup
+    if command -v pyenv > /dev/null 2>&1; then
+        eval "$(pyenv init --path)"
+        eval "$(pyenv init -)"
+    fi
+elif [ -n "$BASH_VERSION" ]; then
+    # BASH-specific pyenv setup
+    if command -v pyenv > /dev/null 2>&1; then
+        eval "$(pyenv init -)"
+    fi
+fi
+
+# My prompt - ZSH and Bash compatible
+if [ -n "$ZSH_VERSION" ]; then
+    # ZSH prompt with colors
+    autoload -U colors && colors
+    export PS1="%{$fg_bold[cyan]%}%* %{$fg_no_bold[green]%}%~ %{$reset_color%}"
+elif [ -n "$BASH_VERSION" ]; then
+    # Bash prompt
+    export PS1="\[\e[1;36m\]\t \[\e[0;32m\]\w \[\e[0m\]"
+fi
 
 # Use colors.
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Store brew base directory for future use in this script
-brew_prefix=`brew --prefix`
+if command -v brew >/dev/null 2>&1; then
+    brew_prefix=$(brew --prefix)
+fi
 
 # Setup environment variables
 if [ -f ~/Developer/github/mayank-io/dotfiles/env ]
@@ -26,13 +49,48 @@ then
 fi
 
 # Initialize macOS preferences
-source ~/Developer/github/mayank-io/dotfiles/osxrc
+if [ -f ~/Developer/github/mayank-io/dotfiles/osxrc ]; then
+    source ~/Developer/github/mayank-io/dotfiles/osxrc
+fi
 
-export WORKON_HOME=$HOME/.virtualenvs
-mkdir -p $WORKON_HOME
-which_python=`pyenv which python3`
-. `pyenv prefix`/bin/virtualenvwrapper.sh
+# Python virtualenv setup
+if command -v pyenv >/dev/null 2>&1; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    mkdir -p $WORKON_HOME
+    
+    # Find virtualenvwrapper.sh in pyenv
+    if [ -f "$(pyenv prefix)/bin/virtualenvwrapper.sh" ]; then
+        export VIRTUALENVWRAPPER_PYTHON=$(pyenv which python3)
+        source "$(pyenv prefix)/bin/virtualenvwrapper.sh"
+    fi
+fi
 
+# NVM setup
 export NVM_DIR="$HOME/.nvm"
-# Load NVM
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+
+# Try different NVM installation paths
+if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+    # Apple Silicon Homebrew path
+    \. "/opt/homebrew/opt/nvm/nvm.sh"
+elif [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
+    # Intel Homebrew path
+    \. "/usr/local/opt/nvm/nvm.sh"
+elif [ -s "$NVM_DIR/nvm.sh" ]; then
+    # Manual installation path
+    \. "$NVM_DIR/nvm.sh"
+fi
+
+# Load NVM completion
+if [ -n "$ZSH_VERSION" ]; then
+    # ZSH completion
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+elif [ -n "$BASH_VERSION" ]; then
+    # Bash completion - try Homebrew paths first, then manual installation
+    if [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
+        \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+    elif [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ]; then
+        \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+    elif [ -s "$NVM_DIR/bash_completion" ]; then
+        \. "$NVM_DIR/bash_completion"
+    fi
+fi

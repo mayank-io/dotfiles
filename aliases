@@ -13,9 +13,16 @@ alias ls='ls -G'
 alias ll='ls -l'
 alias ql='qlmanage -p 2>/dev/null'
 alias grep="grep --color=auto"
-alias redo='sudo \!-1'
+# Shell-specific redo alias
+if [ -n "$BASH_VERSION" ]; then
+    # BASH-specific history expansion (preserves original behavior)
+    alias redo='sudo \!-1'
+elif [ -n "$ZSH_VERSION" ]; then
+    # ZSH-compatible version
+    alias redo='sudo $(fc -ln -1)'
+fi
 alias sb='cd ~/Developer/sandbox'
 alias gh='cd ~/Developer/github/'
-alias cnlp='cd /Users/mayankk/Developer/learning/coursera-nlp-1'
+alias cnlp='cd $HOME/Developer/learning/coursera-nlp-1'
 alias jp='source jupyter-python/bin/activate'
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'

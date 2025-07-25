@@ -11,8 +11,8 @@ function juse() {
     java -version
 }
 
-mkdir -p ~/Screenshots
-defaults write com.apple.screencapture location /Users/mayankk/Screenshots
+mkdir -p $HOME/Screenshots
+defaults write com.apple.screencapture location $HOME/Screenshots
 
 # Enable Path Bar at the bottom of Finder window
 defaults write com.apple.finder ShowPathbar -bool true
